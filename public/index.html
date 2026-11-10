@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <title>Fio Fino Barbearia · Campina Grande/PB</title>
+  <meta name="description" content="Fio Fino Barbearia em Campina Grande/PB. Cabelo, barba e tratamentos exclusivos. Agendamento ágil, sem login." />
+  <meta name="theme-color" content="#09090b" />
+  <meta property="og:title" content="Fio Fino Barbearia" />
+  <meta property="og:description" content="Precisão em cada fio. Estilo em cada detalhe. Agende online." />
+  <meta property="og:image" content="/assets/logo-fio-fino.jpg" />
+  <link rel="icon" href="/assets/logo-fio-fino.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <!-- Ícones SVG -->
+  <svg width="0" height="0" style="position:absolute; display:none" aria-hidden="true">
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-whats" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></g></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><polygon fill="currentColor" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><polyline fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect fill="none" stroke="currentColor" stroke-width="1.8" x="3" y="4" width="18" height="18" rx="2" ry="2"/><line fill="none" stroke="currentColor" stroke-width="1.8" x1="16" y1="2" x2="16" y2="6"/><line fill="none" stroke="currentColor" stroke-width="1.8" x1="8" y1="2" x2="8" y2="6"/><line fill="none" stroke="currentColor" stroke-width="1.8" x1="3" y1="10" x2="21" y2="10"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle fill="none" stroke="currentColor" stroke-width="1.8" cx="12" cy="12" r="10"/><polyline fill="none" stroke="currentColor" stroke-width="1.8" points="12 6 12 12 16 14"/></symbol>
+  </svg>
+
+  <a class="pular-conteudo" href="#agendamento">Pular para o agendamento</a>
+
+  <!-- Topo Fixo com Glassmorphism elegante -->
+  <header class="topo" id="topo">
+    <a href="#inicio" class="topo__marca" aria-label="Fio Fino Barbearia - Início">
+      <img src="/assets/logo-fio-fino.jpg" alt="Logo Fio Fino" width="34" height="34" />
+      <span class="topo__marca-texto">FIO FINO</span>
+    </a>
+    <div class="topo__acoes">
+      <a data-link="instagram" href="#" class="btn-icone" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg class="ico"><use href="#i-insta"/></svg>
+      </a>
+      <a href="#agendamento" class="btn btn--prata btn--sm">Agendar</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section id="inicio" class="hero" aria-labelledby="hero-titulo">
+      <div class="hero__bg-glow" aria-hidden="true"></div>
+      <div class="container hero__conteudo">
+        <div class="hero__logo-wrapper">
+          <img class="hero__logo" src="/assets/logo-fio-fino.jpg" alt="Fio Fino Barbearia" width="280" height="280" fetchpriority="high" />
+        </div>
+        <h1 id="hero-titulo" class="visualmente-oculto">Fio Fino Barbearia · Campina Grande</h1>
+        <p class="hero__slogan">Precisão em cada fio. Estilo em cada detalhe.</p>
+        
+        <!-- Botão de agendar em primeiro plano, rápido e direto -->
+        <div class="hero__acoes">
+          <a href="#agendamento" class="btn btn--prata btn--principal">
+            <svg class="ico"><use href="#i-calendar"/></svg>
+            <span>Agendar horário agora</span>
+          </a>
+          <div class="hero__acoes-secundarias">
+            <a href="#sobre" class="btn btn--contorno" data-scroll>
+              <span>Conhecer a barbearia</span>
+            </a>
+            <a data-link="instagram" href="#" class="btn btn--contorno" target="_blank" rel="noopener">
+              <svg class="ico"><use href="#i-insta"/></svg>
+              <span>Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a href="#sobre" class="hero__seta" aria-label="Rolar para a próxima seção" data-scroll>
+        <svg class="ico"><use href="#i-down"/></svg>
+      </a>
+    </section>
+
+    <!-- ═══════════════ SOBRE & GALERIA DE FOTOS REFINADA ═══════════════ -->
+    <section id="sobre" class="secao" aria-labelledby="sobre-titulo">
+      <div class="container">
+        <div class="secao__cabecalho text-center">
+          <p class="sobretitulo">Experiência Fio Fino</p>
+          <h2 id="sobre-titulo" class="titulo">Tradição, Visagismo e Requinte</h2>
+          <p class="texto-suave secao__subtitulo">
+            Mais do que um corte: um momento de autocuidado, toalha quente, navalha precisa e finalização de alto padrão em Campina Grande.
+          </p>
+        </div>
+
+        <!-- Galeria editorial harmoniosa (Grid 6 fotos perfeitas sem buracos) -->
+        <div class="galeria-grid">
+          <figure class="galeria-card">
+            <img src="/assets/foto-fachada.jpg" alt="Fachada e letreiro Fio Fino Barbearia" loading="lazy" />
+          </figure>
+          <figure class="galeria-card">
+            <img src="/assets/foto-avental.jpg" alt="Avental profissional com a marca Fio Fino" loading="lazy" />
+          </figure>
+          <figure class="galeria-card">
+            <img src="/assets/foto-tesouras.jpg" alt="Tesouras e navalha de alta precisão" loading="lazy" />
+          </figure>
+          <figure class="galeria-card">
+            <img src="/assets/foto-produtos.jpg" alt="Balm, óleos e cosméticos para barba e cabelo" loading="lazy" />
+          </figure>
+          <figure class="galeria-card">
+            <img src="/assets/foto-toalhas.jpg" alt="Toalhas para barboterapia" loading="lazy" />
+          </figure>
+          <figure class="galeria-card">
+            <img src="/assets/foto-cartoes.jpg" alt="Identidade visual refinada" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ TABELA DE SERVIÇOS ═══════════════ -->
+    <section id="servicos" class="secao secao--alt" aria-labelledby="servicos-titulo">
+      <div class="container container--medio">
+        <div class="secao__cabecalho text-center">
+          <p class="sobretitulo">Menu de Serviços</p>
+          <h2 id="servicos-titulo" class="titulo">Tabela de Serviços & Cuidados</h2>
+          <p class="texto-suave">Escolha o serviço desejado ou combine para uma transformação completa.</p>
+        </div>
+
+        <!-- Menu de Serviços Responsivo (Perfeito em telas pequenas, grandes, tablets e PC) -->
+        <div class="menu-servicos" id="tabela-servicos-corpo" role="list" aria-label="Lista de serviços e preços">
+          <div class="carregando">Carregando serviços disponíveis…</div>
+        </div>
+
+        <div class="text-center" style="margin-top: 2rem;">
+          <a href="#agendamento" class="btn btn--prata">
+            <svg class="ico"><use href="#i-calendar"/></svg>
+            <span>Ir para o agendamento</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ AGENDAMENTO INTELIGENTE ═══════════════ -->
+    <section id="agendamento" class="secao" aria-labelledby="agendamento-titulo">
+      <div class="container container--estreito">
+        <div class="secao__cabecalho text-center">
+          <p class="sobretitulo">Sem Burocracia</p>
+          <h2 id="agendamento-titulo" class="titulo">Reserve Seu Horário</h2>
+          <p class="texto-suave">Sem senhas ou cadastros longos. Apenas seu nome e WhatsApp.</p>
+        </div>
+
+        <!-- VIP Stepper Tracker (Indicador Dinâmico de Progresso) -->
+        <div class="stepper-vip" id="stepper-vip" aria-hidden="true">
+          <div class="stepper-vip__linha-trilho">
+            <div class="stepper-vip__linha-progresso" id="stepper-progresso"></div>
+          </div>
+          <div class="stepper-vip__passos">
+            <div class="stepper-passo stepper-passo--ativo" data-passo="1">
+              <span class="stepper-passo__circulo">1</span>
+              <span class="stepper-passo__label">Serviço</span>
+            </div>
+            <div class="stepper-passo" data-passo="2">
+              <span class="stepper-passo__circulo">2</span>
+              <span class="stepper-passo__label">Barbeiro</span>
+            </div>
+            <div class="stepper-passo" data-passo="3">
+              <span class="stepper-passo__circulo">3</span>
+              <span class="stepper-passo__label">Data</span>
+            </div>
+            <div class="stepper-passo" data-passo="4">
+              <span class="stepper-passo__circulo">4</span>
+              <span class="stepper-passo__label">Horário</span>
+            </div>
+            <div class="stepper-passo" data-passo="5">
+              <span class="stepper-passo__circulo">5</span>
+              <span class="stepper-passo__label">Confirmar</span>
+            </div>
+          </div>
+        </div>
+
+        <form id="form-agendamento" class="agendar" novalidate>
+          <!-- 1. Serviço -->
+          <fieldset class="etapa" id="etapa-servico">
+            <legend><span class="etapa__num">1</span> Selecione o serviço</legend>
+            <div class="opcoes opcoes--servicos" id="opcoes-servicos" role="radiogroup"></div>
+          </fieldset>
+
+          <!-- 2. Profissional -->
+          <fieldset class="etapa" id="etapa-barbeiro" disabled>
+            <legend><span class="etapa__num">2</span> Escolha o profissional</legend>
+            <div class="opcoes opcoes--barbeiros" id="opcoes-barbeiros" role="radiogroup"></div>
+          </fieldset>
+
+          <!-- 3. Data -->
+          <fieldset class="etapa" id="etapa-data" disabled>
+            <legend><span class="etapa__num">3</span> Escolha o dia</legend>
+            <div class="dias" id="opcoes-dias" role="radiogroup"></div>
+          </fieldset>
+
+          <!-- 4. Horário (1 em 1 hora) -->
+          <fieldset class="etapa" id="etapa-horario" disabled>
+            <legend>
+              <span class="etapa__num">4</span> Escolha o horário
+              <span class="ao-vivo" title="Atualiza em tempo real"><span class="ao-vivo__ponto"></span> ao vivo</span>
+            </legend>
+            <p class="etapa__aviso-slot"><svg class="ico"><use href="#i-clock"/></svg> Horários de hora em hora</p>
+            <div class="horarios" id="opcoes-horarios" role="radiogroup" aria-live="polite">
+              <p class="dica">Selecione o serviço, profissional e a data acima.</p>
+            </div>
+          </fieldset>
+
+          <!-- 5. Dados -->
+          <fieldset class="etapa" id="etapa-dados" disabled>
+            <legend><span class="etapa__num">5</span> Seus dados para confirmação</legend>
+            <div class="campo">
+              <label for="nome">Nome completo ou como prefere ser chamado</label>
+              <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Ex: Caio Montenegro" minlength="2" maxlength="80" required />
+            </div>
+            <div class="campo">
+              <label for="whatsapp">WhatsApp (com DDD)</label>
+              <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(83) 90000-0000" required />
+              <small class="campo__ajuda">Seu número é seu identificador único. A secretária virtual envia a confirmação por lá.</small>
+            </div>
+            <!-- Campo anti-bot invisível -->
+            <div class="visualmente-oculto" aria-hidden="true">
+              <label for="website">Campo de segurança</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+          </fieldset>
+
+          <!-- Resumo -->
+          <aside class="resumo" id="resumo" hidden aria-live="polite">
+            <h3>Resumo da sua reserva</h3>
+            <dl>
+              <div><dt>Serviço</dt><dd id="resumo-servico">—</dd></div>
+              <div><dt>Profissional</dt><dd id="resumo-barbeiro">—</dd></div>
+              <div><dt>Data & Hora</dt><dd id="resumo-quando">—</dd></div>
+              <div><dt>Valor no local</dt><dd id="resumo-valor">—</dd></div>
+            </dl>
+          </aside>
+
+          <div class="alerta" id="alerta" role="alert" hidden></div>
+
+          <button type="submit" class="btn btn--prata btn--bloco btn--lg" id="btn-confirmar" disabled>
+            <span>Confirmar agendamento</span>
+          </button>
+        </form>
+
+        <!-- Mensagem de Sucesso -->
+        <div class="sucesso" id="sucesso" hidden tabindex="-1">
+          <div class="sucesso__icone"><svg class="ico"><use href="#i-check"/></svg></div>
+          <h3>Horário reservado com sucesso!</h3>
+          <p id="sucesso-texto"></p>
+          <p class="texto-suave">A secretária virtual já registrou seu horário. Se precisar remarcar ou cancelar, basta nos enviar uma mensagem no WhatsApp.</p>
+          <div class="sucesso__acoes">
+            <a data-link="whatsapp-ia" href="#" class="btn btn--whats" target="_blank" rel="noopener">
+              <svg class="ico"><use href="#i-whats"/></svg>
+              <span>Abrir WhatsApp da Barbearia</span>
+            </a>
+            <button type="button" class="btn btn--contorno" id="btn-novo">Fazer outro agendamento</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ CONTATOS ALTERNATIVOS ═══════════════ -->
+    <section id="contato-rapido" class="secao secao--alt secao--compacta" aria-labelledby="contato-titulo">
+      <div class="container container--estreito text-center">
+        <p class="sobretitulo">Atendimento Direto</p>
+        <h2 id="contato-titulo" class="titulo titulo--sm">Outras Formas de Agendar</h2>
+        <p class="texto-suave" style="margin-bottom: 1.5rem;">Agende com nossa secretária virtual no WhatsApp ou ligue diretamente para nós.</p>
+        
+        <a data-link="whatsapp-ia" href="#" class="btn btn--whats btn--bloco btn--lg" target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-whats"/></svg>
+          <span>Agendar pelo WhatsApp</span>
+        </a>
+        
+        <div class="contatos-bloco">
+          <span class="ligacoes-titulo">Ligar para os barbeiros:</span>
+          <div class="ligacoes" data-lista="barbeiros-contato"></div>
+        </div>
+
+        <div class="suporte-bloco" data-bloco="suporte-contato"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ AVALIAÇÕES ═══════════════ -->
+    <section id="avaliacoes" class="secao" aria-labelledby="avaliacoes-titulo">
+      <div class="container">
+        <div class="secao__cabecalho text-center">
+          <p class="sobretitulo">Depoimentos</p>
+          <h2 id="avaliacoes-titulo" class="titulo">Aprovado por Quem Valoriza Estilo</h2>
+          <p class="texto-suave">A satisfação dos nossos clientes é o padrão da nossa bancada.</p>
+        </div>
+
+        <div class="depoimentos">
+          <figure class="depoimento">
+            <div class="estrelas" aria-label="5 estrelas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+            <blockquote>“Atendimento pontual e impecável. O acabamento na navalha do Henrique é diferenciado demais em Campina.”</blockquote>
+            <figcaption>— Lucas Fernandes · Cliente Frequente</figcaption>
+          </figure>
+          <figure class="depoimento">
+            <div class="estrelas" aria-label="5 estrelas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+            <blockquote>“A barba premium com toalha quente é uma experiência relaxante. Agendar pelo site sem login é rápido demais.”</blockquote>
+            <figcaption>— Gabriel Sampaio · Cliente Frequente</figcaption>
+          </figure>
+          <figure class="depoimento">
+            <div class="estrelas" aria-label="5 estrelas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+            <blockquote>“Ambiente moderno, cerveja gelada e profissional de primeira. Virei cliente fiel desde o primeiro corte.”</blockquote>
+            <figcaption>— Matheus Costa · Cliente Frequente</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════ RODAPÉ COM LOGO CENTRAL E SOFISTICAÇÃO ═══════════════ -->
+  <footer class="rodape" id="fale-conosco">
+    <div class="container">
+      <div class="rodape__central">
+        <img src="/assets/logo-fio-fino.jpg" alt="Fio Fino Barbearia" class="rodape__logo-central" width="130" height="130" loading="lazy" />
+        <p class="rodape__slogan">Precisão em cada fio. Estilo em cada detalhe.</p>
+      </div>
+
+      <div class="rodape__grade">
+        <div class="rodape__coluna text-center-mobile">
+          <h2 class="rodape__titulo">Localização</h2>
+          <address class="rodape__endereco">
+            <a data-link="maps" href="#" class="rodape__link" target="_blank" rel="noopener">
+              <svg class="ico"><use href="#i-pin"/></svg>
+              <span data-texto="endereco"></span>
+            </a>
+          </address>
+          <p class="texto-suave" data-texto="horario"></p>
+        </div>
+
+        <div class="rodape__coluna text-center-mobile">
+          <h2 class="rodape__titulo">Fale Conosco</h2>
+          <div class="ligacoes ligacoes--rodape" data-lista="rodape-contatos"></div>
+          <a data-link="instagram" href="#" class="rodape__link" target="_blank" rel="noopener">
+            <svg class="ico"><use href="#i-insta"/></svg>
+            <span data-texto="instagramArroba"></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="rodape__divisor"></div>
+      <p class="rodape__copy">© <span id="ano"></span> - <span data-texto="nome"></span> - Campina Grande/PB · Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/app.js" type="module"></script>
+</body>
+</html>

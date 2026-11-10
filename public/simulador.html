@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador WhatsApp — Fio Fino Barbearia</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { background: #0c1317; color: #e9edef; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+    
+    .sim-container {
+      width: 100%;
+      max-width: 480px;
+      height: 100vh;
+      max-height: 840px;
+      background: #111b21;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+      border: 1px solid #222d34;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* Topo do WhatsApp */
+    .chat-header {
+      background: #202c33;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #222d34;
+    }
+    .chat-header img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #00a884;
+    }
+    .header-info { flex: 1; }
+    .header-info h2 { font-size: 16px; font-weight: 500; color: #e9edef; }
+    .header-info p { font-size: 12px; color: #8696a0; }
+    .badge-sim { background: #d4af37; color: #000; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; }
+
+    /* Barra de Configuração do Cliente Simulado */
+    .config-bar {
+      background: #182229;
+      padding: 8px 16px;
+      font-size: 12px;
+      color: #8696a0;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      border-bottom: 1px solid #222d34;
+    }
+    .config-bar input {
+      background: #111b21;
+      border: 1px solid #2a3942;
+      color: #d1d7db;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      outline: none;
+    }
+    .config-bar input:focus { border-color: #00a884; }
+
+    /* Área de Mensagens */
+    .chat-body {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: #0b141a;
+      background-image: radial-gradient(#182229 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .msg {
+      max-width: 80%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.4;
+      position: relative;
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+    .msg-in {
+      align-self: flex-start;
+      background: #202c33;
+      color: #e9edef;
+      border-top-left-radius: 0;
+    }
+    .msg-out {
+      align-self: flex-end;
+      background: #005c4b;
+      color: #e9edef;
+      border-top-right-radius: 0;
+    }
+    .msg-time {
+      font-size: 10px;
+      color: #8696a0;
+      float: right;
+      margin-top: 4px;
+      margin-left: 8px;
+    }
+
+    .typing {
+      align-self: flex-start;
+      background: #202c33;
+      color: #8696a0;
+      font-style: italic;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: none;
+    }
+
+    /* Barra de Digitação */
+    .chat-footer {
+      background: #202c33;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .chat-footer input {
+      flex: 1;
+      background: #2a3942;
+      border: none;
+      outline: none;
+      color: #d1d7db;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .chat-footer button {
+      background: #00a884;
+      border: none;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .chat-footer button:hover { background: #029474; }
+  </style>
+</head>
+<body>
+
+  <div class="sim-container">
+    <div class="chat-header">
+      <img src="/img/logo.jpg" alt="Logo" onerror="this.src='https://ui-avatars.com/api/?name=Fio+Fino&background=d4af37&color=000'">
+      <div class="header-info">
+        <h2>Fio Fino Barbearia <span class="badge-sim">Simulador</span></h2>
+        <p>Secretária Virtual (Online)</p>
+      </div>
+    </div>
+
+    <!-- Configuração do Telefone Simulado -->
+    <div class="config-bar">
+      <span>Número do WhatsApp:</span>
+      <input type="text" id="simWhatsapp" value="83991948910" placeholder="DDD + Número" title="WhatsApp do cliente" style="flex: 1;">
+      <button type="button" id="btnLimparChat" style="background:#2a3942; border:none; color:#8696a0; padding:4px 8px; border-radius:4px; cursor:pointer; font-size:11px;">Limpar tela</button>
+    </div>
+
+    <!-- Conversa -->
+    <div class="chat-body" id="chatBody">
+      <div class="typing" id="typing">Secretária está digitando...</div>
+    </div>
+
+    <!-- Digitação -->
+    <form class="chat-footer" id="chatForm">
+      <input type="text" id="msgInput" placeholder="Mensagem..." autocomplete="off" required>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script>
+    const chatBody = document.getElementById('chatBody');
+    const chatForm = document.getElementById('chatForm');
+    const msgInput = document.getElementById('msgInput');
+    const simWhatsapp = document.getElementById('simWhatsapp');
+    const btnLimparChat = document.getElementById('btnLimparChat');
+    const typing = document.getElementById('typing');
+
+    btnLimparChat.addEventListener('click', () => {
+      chatBody.querySelectorAll('.msg').forEach(el => el.remove());
+    });
+
+    function scrollBottom() {
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function addMessage(texto, tipo) {
+      const hora = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const div = document.createElement('div');
+      div.className = `msg ${tipo === 'out' ? 'msg-out' : 'msg-in'}`;
+      div.innerHTML = `${escapeHtml(texto)}<span class="msg-time">${hora}</span>`;
+      chatBody.insertBefore(div, typing);
+      scrollBottom();
+    }
+
+    function escapeHtml(text) {
+      const p = document.createElement('p');
+      p.textContent = text;
+      return p.innerHTML;
+    }
+
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const texto = msgInput.value.trim();
+      if (!texto) return;
+
+      // Adiciona mensagem enviada
+      addMessage(texto, 'out');
+      msgInput.value = '';
+
+      // Mostra digitando
+      typing.style.display = 'block';
+      scrollBottom();
+
+      try {
+        const resp = await fetch('/webhook/simular', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            whatsapp: simWhatsapp.value,
+            texto: texto
+          })
+        });
+
+        const data = await resp.json();
+        typing.style.display = 'none';
+
+        if (data.resposta) {
+          addMessage(data.resposta, 'in');
+        } else if (data.erro) {
+          addMessage(`❌ Erro: ${data.erro}`, 'in');
+        }
+      } catch (err) {
+        typing.style.display = 'none';
+        addMessage('❌ Erro de conexão com o servidor local.', 'in');
+      }
+    });
+  </script>
+</body>
+</html>
